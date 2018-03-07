@@ -1,0 +1,24 @@
+diff -Nru a/cmake/AvogadroLibsConfig.cmake.in b/cmake/AvogadroLibsConfig.cmake.in
+--- a/cmake/AvogadroLibsConfig.cmake.in	2016-12-01 22:17:48.000000000 +0100
++++ b/cmake/AvogadroLibsConfig.cmake.in	2016-12-11 12:28:02.873687260 +0100
+@@ -10,7 +10,7 @@
+ 
+ set(AvogadroLibs_INSTALL_PREFIX  "@CMAKE_INSTALL_PREFIX@")
+ set(AvogadroLibs_INCLUDE_DIRS    "${AvogadroLibs_INSTALL_PREFIX}/@INSTALL_INCLUDE_DIR@")
+-set(AvogadroLibs_LIBRARY_DIR     "${AvogadroLibs_INSTALL_PREFIX}/@INSTALL_LIBRARY_DIR@@LIB_SUFFIX@")
++set(AvogadroLibs_LIBRARY_DIR     "${AvogadroLibs_INSTALL_PREFIX}/@INSTALL_LIBRARY_DIR@")
+ set(AvogadroLibs_RUNTIME_DIR     "${AvogadroLibs_INSTALL_PREFIX}/@INSTALL_RUNTIME_DIR@")
+ set(AvogadroLibs_CMAKE_DIR       "${AvogadroLibs_LIBRARY_DIR}/cmake/avogadrolibs")
+ 
+diff -Nru a/cmake/FindSpglib.cmake b/cmake/FindSpglib.cmake
+--- a/cmake/FindSpglib.cmake	2016-12-01 22:17:48.000000000 +0100
++++ b/cmake/FindSpglib.cmake	2016-12-11 12:28:27.684178975 +0100
+@@ -7,7 +7,7 @@
+ #  SPGLIB_LIBRARY      - The Spglib library
+ #
+ find_path(SPGLIB_INCLUDE_DIR spglib/spglib.h)
+-find_library(SPGLIB_LIBRARY NAMES spglib)
++find_library(SPGLIB_LIBRARY NAMES spglib symspg)
+ 
+ set(SPGLIB_INCLUDE_DIRS "${SPGLIB_INCLUDE_DIR}")
+ 
