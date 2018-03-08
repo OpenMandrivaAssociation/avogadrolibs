@@ -50,8 +50,8 @@ Requires:	spglib-devel
 Provides:	avogadro2-devel = %{version}-%{release}
 
 %description	devel
-The %{name}-devel package contains header files for developing applications
-that use %{name}.
+The %{name}-devel package contains header files for 
+developing applications that use %{name}.
 
 #----------------------------------------------------
 
