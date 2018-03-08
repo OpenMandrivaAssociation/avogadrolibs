@@ -6,6 +6,7 @@ License:	BSD
 Group:		Sciences/Chemistry
 Url:		http://www.openchemistry.org/projects/avogadro2/
 Source:		https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
+Source100:	avogadrolibs.rpmlintrc
 Patch0:		avogadrolibs-1.90.0-fix-cmake.patch
 Patch1:		avogadrolibs-1.90.0-gcc7.patch
 BuildRequires:	cmake
