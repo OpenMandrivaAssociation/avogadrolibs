@@ -10,7 +10,8 @@ Patch0:		avogadrolibs-1.90.0-fix-cmake.patch
 Patch1:		avogadrolibs-1.90.0-gcc7.patch
 BuildRequires:	cmake
 BuildRequires:	boost-devel
-#BuildRequires:	spglib-devel
+BuildRequires:	spglib-devel
+BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(MoleQueue)
 BuildRequires:	pkgconfig(eigen3)
 BuildRequires:	pkgconfig(glew)
