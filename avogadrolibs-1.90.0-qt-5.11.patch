@@ -1,0 +1,11 @@
+diff -up avogadrolibs-1.90.0/avogadro/qtplugins/gamessinput/gamessinput.cpp.omv~ avogadrolibs-1.90.0/avogadro/qtplugins/gamessinput/gamessinput.cpp
+--- avogadrolibs-1.90.0/avogadro/qtplugins/gamessinput/gamessinput.cpp.omv~	2018-06-24 14:34:50.745322592 +0200
++++ avogadrolibs-1.90.0/avogadro/qtplugins/gamessinput/gamessinput.cpp	2018-06-24 14:35:16.220323542 +0200
+@@ -26,6 +26,7 @@
+ 
+ #include <QtCore/QDebug>
+ 
++#include <QtWidgets/QAction>
+ #include <QtWidgets/QMessageBox>
+ 
+ namespace Avogadro {

@@ -1,14 +1,15 @@
 Name:		avogadrolibs
 Version:	1.90.0
-Release:	1
+Release:	2
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
 Url:		http://www.openchemistry.org/projects/avogadro2/
-Source:		https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	avogadrolibs.rpmlintrc
 Patch0:		avogadrolibs-1.90.0-fix-cmake.patch
 Patch1:		avogadrolibs-1.90.0-gcc7.patch
+Patch2:		avogadrolibs-1.90.0-qt-5.11.patch
 BuildRequires:	cmake
 BuildRequires:	boost-devel
 BuildRequires:	spglib-devel
@@ -60,15 +61,14 @@ developing applications that use %{name}.
 %apply_patches
 
 %build
-export CC=gcc
-export CXX=g++
 %cmake_qt5 \
-	-DCMAKE_INSTALL_LIBDIR=%{_lib}
+	-DCMAKE_INSTALL_LIBDIR=%{_lib} \
+	-G Ninja
 
-%make
+%ninja_build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 %files
 %doc %{_docdir}/AvogadroLibs/
