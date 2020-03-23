@@ -60,13 +60,15 @@ developing applications that use %{name}.
 
 %build
 %cmake_qt5 \
-	-DCMAKE_INSTALL_LIBDIR=%{_lib} \
 	-G Ninja
 
 %ninja_build
 
 %install
 %ninja_install -C build
+
+# Somehow lib64 becomes lib6464 here...
+sed -i -e 's,6464,64,g;s,3232,32,g;s,x32x32,x32,g' %{buildroot}%{_libdir}/cmake/avogadrolibs/AvogadroLibsConfig.cmake
 
 %files
 %doc %{_docdir}/AvogadroLibs/
