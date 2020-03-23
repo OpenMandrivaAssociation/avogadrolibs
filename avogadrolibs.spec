@@ -1,15 +1,12 @@
 Name:		avogadrolibs
-Version:	1.90.0
-Release:	4
+Version:	1.93.0
+Release:	1
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
 Url:		http://www.openchemistry.org/projects/avogadro2/
 Source0:	https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
 Source100:	avogadrolibs.rpmlintrc
-Patch0:		avogadrolibs-1.90.0-fix-cmake.patch
-Patch1:		avogadrolibs-1.90.0-gcc7.patch
-Patch2:		avogadrolibs-1.90.0-qt-5.11.patch
 BuildRequires:	cmake
 BuildRequires:	boost-devel
 BuildRequires:	spglib-devel
@@ -23,6 +20,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	mmtf-cpp-devel
 
 %description
 Avogadro is an advanced molecular editor designed for cross-platform use in
@@ -72,11 +70,11 @@ developing applications that use %{name}.
 
 %files
 %doc %{_docdir}/AvogadroLibs/
-%{_libdir}/*.so
+%{_libdir}/*.so.*
 %{_libdir}/avogadro2/
 
 %files devel
 %{_includedir}/avogadro/
 %{_libdir}/cmake/%{name}/
-%{_libdir}/libjsoncpp.a
-
+%{_libdir}/*.so
+%{_libdir}/*.a
