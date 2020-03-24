@@ -20,9 +20,11 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	mmtf-cpp-devel
-BuildRequires:	%{_lib}msym-devel
+BuildRequires:	msym-devel
 BuildRequires:	pkgconfig(libarchive)
+BuildRequires:	pkgconfig(msgpack)
 
 %description
 Avogadro is an advanced molecular editor designed for cross-platform use in
@@ -62,6 +64,7 @@ developing applications that use %{name}.
 
 %build
 %cmake_qt5 \
+	-DOpenGL_GL_PREFERENCE=GLVND \
 	-G Ninja
 
 %ninja_build
