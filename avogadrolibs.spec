@@ -21,6 +21,8 @@ BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	mmtf-cpp-devel
+BuildRequires:	%{_lib}msym-devel
+BuildRequires:	pkgconfig(libarchive)
 
 %description
 Avogadro is an advanced molecular editor designed for cross-platform use in
