@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(Qt5Network)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	mmtf-cpp-devel
 BuildRequires:	msym-devel
 BuildRequires:	pkgconfig(libarchive)
@@ -59,8 +60,7 @@ developing applications that use %{name}.
 #----------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %cmake_qt5 \
