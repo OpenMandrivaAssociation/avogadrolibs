@@ -1,6 +1,6 @@
 Name:		avogadrolibs
 Version:	1.93.0
-Release:	4
+Release:	5
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
