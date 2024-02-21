@@ -1,0 +1,47 @@
+--- a/avogadro/qtplugins/insertfragment/CMakeLists.orig.txt	2021-06-02 23:02:35.000000000 +0200
++++ a/avogadro/qtplugins/insertfragment/CMakeLists.txt	2021-06-04 15:01:50.784121876 +0200
+@@ -13,41 +13,10 @@
+ 
+ # Install the fragments & crystals
+ # TODO - make this a for loop
+-set(_molecules "${AvogadroLibs_SOURCE_DIR}/../molecules")
+-set(_crystals "${AvogadroLibs_SOURCE_DIR}/../crystals")
++set(_molecules "${AvogadroLibs_SOURCE_DIR}/molecules")
++set(_crystals "${AvogadroLibs_SOURCE_DIR}/crystals")
+ 
+-# Look in parallel directory for the molecule fragment repository
+-if(NOT EXISTS "${_molecules}")
+-# download molecules...
+-ExternalProject_Add(molecules
+-    GIT_REPOSITORY https://github.com/openchemistry/molecules
+-    # or https://github.com/OpenChemistry/molecules/archive/refs/heads/master.zip
+-    SOURCE_DIR "${AvogadroLibs_SOURCE_DIR}/../molecules"
+-    CONFIGURE_COMMAND ""
+-    BUILD_COMMAND ""
+-    INSTALL_COMMAND ""
+-)
+-endif()
+-
+-install(DIRECTORY "${AvogadroLibs_SOURCE_DIR}/../molecules"
+-  DESTINATION "${INSTALL_DATA_DIR}/avogadro2"
+-  PATTERN ".git" EXCLUDE
+-)
+-
+-# crystals
+-if(NOT EXISTS "${_crystals}")
+-# download molecules... 
+-ExternalProject_Add(crystals
+-    GIT_REPOSITORY https://github.com/openchemistry/crystals
+-    # or https://github.com/OpenChemistry/crystals/archive/refs/heads/master.zip
+-    SOURCE_DIR "${AvogadroLibs_SOURCE_DIR}/../crystals"
+-    CONFIGURE_COMMAND ""
+-    BUILD_COMMAND ""
+-    INSTALL_COMMAND ""
+-)
+-endif()
+-
+-install(DIRECTORY "${AvogadroLibs_SOURCE_DIR}/../crystals"
++install(DIRECTORY "${AvogadroLibs_SOURCE_DIR}/crystals"
+ DESTINATION "${INSTALL_DATA_DIR}/avogadro2"
+ PATTERN ".git" EXCLUDE
+ )
