@@ -1,2 +1,4 @@
 sources:
-  avogadrolibs-1.93.0.tar.gz: 80656cbf4ecbc85c99bd05a61f8f6985b17fef85
+  avogadrolibs-1.99.0.tar.gz: 05be339222925b0a339ccbe7c45da95696a43cfc
+  crystals-1.99.0.tar.gz: e6dbae9e265f631296dfd2df585069e28a3e53bf
+  molecules-1.99.0.tar.gz: d44e5ac5f2df78c2f24b94d11537e034f7bf5987

@@ -1,15 +1,19 @@
 Name:		avogadrolibs
-Version:	1.97.0
-Release:	2
+Version:	1.99.0
+Release:	1
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
 Url:		http://www.openchemistry.org/projects/avogadro2/
 Source0:	https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
+Source2:	https://github.com/OpenChemistry/molecules/archive/refs/tags/1.99.0/molecules-1.99.0.tar.gz
+Source3:	https://github.com/OpenChemistry/crystals/archive/refs/tags/1.99.0/crystals-1.99.0.tar.gz
 Source100:	avogadrolibs.rpmlintrc
+Patch1:		avogadro2-libs-1.94.0-do_not_download_external_files.patch
+
 BuildRequires:	cmake
 BuildRequires:	boost-devel
-BuildRequires:	spglib-devel
+BuildRequires:	cmake(Spglib)
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(MoleQueue)
 BuildRequires:	pkgconfig(eigen3)
@@ -25,7 +29,6 @@ BuildRequires:	pkgconfig(glu)
 BuildRequires:	mmtf-cpp-devel
 BuildRequires:	msym-devel
 BuildRequires:	pkgconfig(libarchive)
-BuildRequires:	pkgconfig(msgpack)
 
 %description
 Avogadro is an advanced molecular editor designed for cross-platform use in
@@ -61,6 +64,8 @@ developing applications that use %{name}.
 
 %prep
 %autosetup -p1
+tar -xf %{SOURCE2} && mv molecules-1.99.0 molecules
+tar -xf %{SOURCE3} && mv crystals-1.99.0 crystals
 
 %build
 %cmake_qt5 \
@@ -79,9 +84,9 @@ sed -i -e 's,6464,64,g;s,3232,32,g;s,x32x32,x32,g' %{buildroot}%{_libdir}/cmake/
 %doc %{_docdir}/AvogadroLibs/
 %{_libdir}/*.so.*
 %{_libdir}/avogadro2/
+%{_datadir}/avogadro2/
 
 %files devel
 %{_includedir}/avogadro/
 %{_libdir}/cmake/%{name}/
 %{_libdir}/*.so
-%{_libdir}/*.a
