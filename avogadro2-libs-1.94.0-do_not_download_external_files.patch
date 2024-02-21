@@ -45,3 +45,31 @@
  DESTINATION "${INSTALL_DATA_DIR}/avogadro2"
  PATTERN ".git" EXCLUDE
  )
+--- avogadrolibs-1.99.0/avogadro/qtplugins/templatetool/CMakeLists.txt.orig	2024-02-21 18:59:41.544794993 +0000
++++ avogadrolibs-1.99.0/avogadro/qtplugins/templatetool/CMakeLists.txt	2024-02-21 19:01:58.469862467 +0000
+@@ -24,23 +24,9 @@
+ )
+ 
+ # Install the fragments
+-set(_molecules "${AvogadroLibs_SOURCE_DIR}/../fragments")
++set(_molecules "${AvogadroLibs_SOURCE_DIR}/fragments")
+ 
+-# Look in parallel directory for the molecule fragment repository
+-if(NOT EXISTS "${_fragments}")
+-# download molecules...
+-ExternalProject_Add(fragments
+-    GIT_REPOSITORY https://github.com/openchemistry/fragments
+-    GIT_TAG main
+-    # or https://github.com/OpenChemistry/molecules/archive/refs/heads/master.zip
+-    SOURCE_DIR "${AvogadroLibs_SOURCE_DIR}/../fragments"
+-    CONFIGURE_COMMAND ""
+-    BUILD_COMMAND ""
+-    INSTALL_COMMAND ""
+-)
+-endif()
+-
+-install(DIRECTORY "${AvogadroLibs_SOURCE_DIR}/../fragments"
++install(DIRECTORY "${AvogadroLibs_SOURCE_DIR}/fragments"
+   DESTINATION "${INSTALL_DATA_DIR}/avogadro2"
+   PATTERN ".git" EXCLUDE
+ )
