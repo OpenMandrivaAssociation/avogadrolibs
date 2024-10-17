@@ -4,7 +4,7 @@ Release:	1
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
-Url:		http://www.openchemistry.org/projects/avogadro2/
+Url:		https://www.openchemistry.org/projects/avogadro2/
 Source0:	https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
 Source2:	https://github.com/OpenChemistry/molecules/archive/refs/tags/1.99.0/molecules-1.99.0.tar.gz
 Source3:	https://github.com/OpenChemistry/crystals/archive/refs/tags/1.99.0/crystals-1.99.0.tar.gz
