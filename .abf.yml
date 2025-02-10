@@ -1,5 +1,5 @@
 sources:
-  avogadrolibs-1.99.0.tar.gz: 05be339222925b0a339ccbe7c45da95696a43cfc
-  crystals-1.99.0.tar.gz: e6dbae9e265f631296dfd2df585069e28a3e53bf
-  fragments-1.99.0.tar.gz: c9accee8ba5af5a5c15215acded530df4f5956be
-  molecules-1.99.0.tar.gz: d44e5ac5f2df78c2f24b94d11537e034f7bf5987
+  avogadrolibs-1.100.0.tar.gz: 3af50deaa4708ab94e8842bb3be060dae5d74bc2
+  crystals-1.100.0.tar.gz: f159a5cc6a2f54dbe38471604cdef39d39a489d2
+  fragments-1.100.0.tar.gz: 354ab28837ccfde46787b7026c58b1b14b54c010
+  molecules-1.100.0.tar.gz: c22c5fe0782aec9b922dd4215b5e28aee806db39

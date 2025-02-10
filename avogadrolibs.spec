@@ -1,16 +1,16 @@
 Name:		avogadrolibs
-Version:	1.99.0
-Release:	2
+Version:	1.100.0
+Release:	1
 Summary:	An advanced molecular editor
 License:	BSD
 Group:		Sciences/Chemistry
 Url:		https://www.openchemistry.org/projects/avogadro2/
 Source0:	https://github.com/OpenChemistry/avogadrolibs/archive/%{version}/%{name}-%{version}.tar.gz
-Source2:	https://github.com/OpenChemistry/molecules/archive/refs/tags/1.99.0/molecules-1.99.0.tar.gz
-Source3:	https://github.com/OpenChemistry/crystals/archive/refs/tags/1.99.0/crystals-1.99.0.tar.gz
-Source4:	https://github.com/OpenChemistry/fragments/archive/refs/tags/1.99.0/fragments-1.99.0.tar.gz
+Source2:	https://github.com/OpenChemistry/molecules/archive/refs/tags/%{version}/molecules-%{version}.tar.gz
+Source3:	https://github.com/OpenChemistry/crystals/archive/refs/tags/%{version}/crystals-%{version}.tar.gz
+Source4:	https://github.com/OpenChemistry/fragments/archive/refs/tags/%{version}/fragments-%{version}.tar.gz
 Source100:	avogadrolibs.rpmlintrc
-Patch1:		avogadro2-libs-1.94.0-do_not_download_external_files.patch
+#Patch1:		avogadro2-libs-1.94.0-do_not_download_external_files.patch
 
 BuildRequires:	cmake
 BuildRequires:	boost-devel
@@ -66,13 +66,15 @@ developing applications that use %{name}.
 
 %prep
 %autosetup -p1
-tar -xf %{SOURCE2} && mv molecules-1.99.0 molecules
-tar -xf %{SOURCE3} && mv crystals-1.99.0 crystals
-tar -xf %{SOURCE4} && mv fragments-1.99.0 fragments
+tar -xf %{SOURCE2} && mv molecules-%{version} ../molecules
+tar -xf %{SOURCE3} && mv crystals-%{version} ../crystals
+tar -xf %{SOURCE4} && mv fragments-%{version} ../fragments
 
 %build
-%cmake_qt5 \
+%cmake \
 	-DOpenGL_GL_PREFERENCE=GLVND \
+        -DAvogadroLibs_SOURCEDATA_DIR:STATIC=%{builddir} \
+        -DQT_VERSION=6 \
 	-G Ninja
 
 %ninja_build
