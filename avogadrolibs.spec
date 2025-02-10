@@ -16,16 +16,15 @@ BuildRequires:	cmake
 BuildRequires:	boost-devel
 BuildRequires:	cmake(Spglib)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(MoleQueue)
 BuildRequires:	pkgconfig(eigen3)
 BuildRequires:	pkgconfig(glew)
-BuildRequires:	pkgconfig(Qt5Concurrent)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Network)
-BuildRequires:	pkgconfig(Qt5OpenGL)
-BuildRequires:	pkgconfig(Qt5Svg)
-BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt6Concurrent)
+BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:	pkgconfig(Qt6Gui)
+BuildRequires:	pkgconfig(Qt6Network)
+BuildRequires:	pkgconfig(Qt6OpenGL)
+BuildRequires:	pkgconfig(Qt6Svg)
+BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	mmtf-cpp-devel
@@ -53,7 +52,6 @@ features and goals of the Avogadro project:
 Summary:	Development files for %{name}
 Group:		Development/Other
 Requires:	%{name} >= %{version}-%{release}
-Requires:	cmake(MoleQueue)
 Requires:	pkgconfig(glew)
 Requires:	spglib-devel
 Provides:	avogadro2-devel = %{version}-%{release}
@@ -75,6 +73,7 @@ tar -xf %{SOURCE4} && mv fragments-%{version} ../fragments
 	-DOpenGL_GL_PREFERENCE=GLVND \
         -DAvogadroLibs_SOURCEDATA_DIR:STATIC=%{builddir} \
         -DQT_VERSION=6 \
+        -DBUILD_MOLEQUEUE=OFF \
 	-G Ninja
 
 %ninja_build
